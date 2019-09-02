@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Selection = () => {
+const Selection = ({ handler }) => {
   let hours = [];
   for (let i = 0; i < 24; i++) {
     hours.push(i);
@@ -23,7 +23,12 @@ const Selection = () => {
   //   });
 
   return (
-    <form>
+    <form
+      onSubmit={e => {
+        e.preventDefault();
+        handler({ start, end, content });
+      }}
+    >
       <label>
         content:
         <input
