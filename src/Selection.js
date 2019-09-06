@@ -12,7 +12,7 @@ const Selection = ({ handler }) => {
   const [end, setEnd] = useState("");
 
   useEffect(() => {
-    setEnd("");
+    setEnd(start + 1);
     let today = new Date();
     let currentHours = hours.slice(today.getHours());
     let nextHours = hours.slice(start + 1);
@@ -39,19 +39,33 @@ const Selection = ({ handler }) => {
       </label>
       <label>
         start:
-        <select value={start} onChange={e => setStart(+e.target.value)}>
+        <select
+          value={start}
+          onChange={e => setStart(+e.target.value)}
+          onBlur={e => setStart(+e.target.value)}
+        >
           {starts.map(item => (
-            <option value={item}>{item}</option>
+            <option key={item} value={item}>
+              {item}
+            </option>
           ))}
         </select>
       </label>
       <label>
         end:
-        <select value={end} onChange={e => setEnd(e.target.value)}>
+        <select
+          value={end}
+          onChange={e => setEnd(+e.target.value)}
+          onBlur={e => setEnd(+e.target.value)}
+        >
           {ends.length === 0 ? (
             <option>--</option>
           ) : (
-            ends.map(item => <option value={item}>{item}</option>)
+            ends.map(item => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))
           )}
         </select>
       </label>
