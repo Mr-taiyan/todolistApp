@@ -31,15 +31,43 @@ class App extends React.Component {
     // console.log(this.state.plans);
     let newArr = this.state.plans;
     newArr.push(obj);
+
+    let optArr = [];
+    for (let item of newArr) {
+      let index = 0;
+      mark: while (true) {
+        if (!optArr[index]) {
+          optArr[index] = [];
+          optArr[index].push(item);
+          break;
+        }
+
+        for (let { start, end } of optArr[index]) {
+          if (
+            (item.start <= start && item.end > start) ||
+            (item.end >= end && item.start < end) ||
+            (item.start >= start && item.end <= end)
+          ) {
+            index++;
+            continue mark;
+          }
+        }
+
+        optArr[index].push(item);
+        break;
+      }
+    }
+
     this.setState({
-      plans: newArr
+      plans: newArr,
+      optArr
     });
   }
 
   render() {
     return (
       <div>
-        {console.log(this.state.plans)}
+        {console.log(this.state.optArr)}
         <Selection handler={this.handler} />
         <img src={require("../img/time-scale.png")} alt="not found" />
         {/* <img src="../img/time-scale.png" alt="not found" /> */}
