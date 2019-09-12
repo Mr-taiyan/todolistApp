@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDom from "react-dom";
 import Selection from "./Selection";
 import { Router, Link } from "@reach/router";
+import getRandomColor from "./getRandomColor";
 
 // const App = () => {
 //   const [plans, setPlans] = useState([]);
@@ -66,6 +67,7 @@ class App extends React.Component {
     for (let i = 0, len = optArr.length; i < len; i++) {
       for (let item of optArr[i]) {
         item.column = i + 1;
+        item.backgroundColor = getRandomColor();
         finalArr.push(item);
       }
     }
@@ -88,16 +90,20 @@ class App extends React.Component {
           <div className="wrapper" style={{ width: "0px" }}>
             {!this.state.optArr
               ? []
-              : this.state.optArr.map(({ start, end, content, column }) => (
-                  <div
-                    key={`${column}-${start}`}
-                    style={{
-                      gridColumn: `${column}/${column + 1}`,
-                      gridRow: `${start + 1}/${end + 1}`,
-                      backgroundColor: "red"
-                    }}
-                  ></div>
-                ))}
+              : this.state.optArr.map(
+                  ({ start, end, content, column, backgroundColor }) => (
+                    <div
+                      key={`${column}-${start}`}
+                      style={{
+                        gridColumn: `${column}/${column + 1}`,
+                        gridRow: `${start + 1}/${end + 1}`,
+                        backgroundColor: backgroundColor
+                      }}
+                    >
+                      {start}~{end}:{content}
+                    </div>
+                  )
+                )}
           </div>
         </div>
       </div>
