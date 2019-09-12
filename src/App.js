@@ -58,9 +58,21 @@ class App extends React.Component {
       }
     }
 
+    let a = document.getElementsByClassName("wrapper")[0];
+    a.style.width = `${optArr.length * 200}px`;
+    console.log(a.style);
+
+    let finalArr = [];
+    for (let i = 0, len = optArr.length; i < len; i++) {
+      for (let item of optArr[i]) {
+        item.column = i + 1;
+        finalArr.push(item);
+      }
+    }
+
     this.setState({
       plans: newArr,
-      optArr
+      optArr: finalArr
     });
   }
 
@@ -69,8 +81,25 @@ class App extends React.Component {
       <div>
         {console.log(this.state.optArr)}
         <Selection handler={this.handler} />
-        <img src={require("../img/time-scale.png")} alt="not found" />
-        {/* <img src="../img/time-scale.png" alt="not found" /> */}
+        <div className="set">
+          <div>
+            <img src={require("../img/time-scale.png")} alt="not found" />
+          </div>
+          <div className="wrapper" style={{ width: "0px" }}>
+            {!this.state.optArr
+              ? []
+              : this.state.optArr.map(({ start, end, content, column }) => (
+                  <div
+                    key={`${column}-${start}`}
+                    style={{
+                      gridColumn: `${column}/${column + 1}`,
+                      gridRow: `${start + 1}/${end + 1}`,
+                      backgroundColor: "red"
+                    }}
+                  ></div>
+                ))}
+          </div>
+        </div>
       </div>
     );
   }
