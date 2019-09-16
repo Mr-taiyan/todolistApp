@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import Selection from "./Selection";
 import { Router, Link } from "@reach/router";
 import getRandomColor from "./getRandomColor";
+import Boxes from "./Boxes";
 
 // const App = () => {
 //   const [plans, setPlans] = useState([]);
@@ -20,7 +21,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      plans: []
+      plans: [],
+      optArr: []
     };
     this.handler = this.handler.bind(this);
   }
@@ -59,9 +61,9 @@ class App extends React.Component {
       }
     }
 
-    let a = document.getElementsByClassName("wrapper")[0];
-    a.style.width = `${optArr.length * 200}px`;
-    console.log(a.style);
+    // let a = document.getElementsByClassName("wrapper")[0];
+    // a.style.width = `${optArr.length * 200}px`;
+    // console.log(a.style);
 
     let finalArr = [];
     for (let i = 0, len = optArr.length; i < len; i++) {
@@ -81,13 +83,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.state.optArr)}
         <Selection handler={this.handler} />
         <div className="set">
           <div>
             <img src={require("../img/time-scale.png")} alt="not found" />
           </div>
-          <div className="wrapper" style={{ width: "0px" }}>
+          {/* <div className="wrapper" style={{ width: "0px" }}>
             {!this.state.optArr
               ? []
               : this.state.optArr.map(
@@ -104,8 +105,9 @@ class App extends React.Component {
                     </div>
                   )
                 )}
-          </div>
+          </div> */}
         </div>
+        <Boxes Arr={this.state.optArr} />
       </div>
     );
   }

@@ -10,18 +10,25 @@
   grid-template-rows: repeat(24, 1fr);
 }
 
-.a {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  background-color: aqua;
+.flexbox {
+  width: auto;
+  height: 648px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  border: solid 1px gray;
 }
-.b {
-  grid-column: 1/2;
-  grid-row: 2/3;
-  background-color: burlywood;
+
+.blockgray {
+  background-color: wheat;
+  width: 144px;
+  height: 26px;
+  border-bottom: dashed 1px #d6d2d2;
 }
-.c {
-  grid-column: 2/4;
-  grid-row: 1/3;
-  background-color: darkgreen;
+
+.blockwhite {
+  background-color: white;
+  width: 144px;
+  height: 26px;
+  border-bottom: dashed 1px #d6d2d2;
 }
