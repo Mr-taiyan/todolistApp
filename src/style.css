@@ -5,9 +5,10 @@
 
 .wrapper {
   display: grid;
-  height: 480px;
-  background-color: beige;
+  height: 648px;
+  /* background-color: beige; */
   grid-template-rows: repeat(24, 1fr);
+  position: absolute;
 }
 
 .title {
@@ -41,4 +42,12 @@
   width: 144px;
   height: 26px;
   border-bottom: dashed 1px #d6d2d2;
+}
+
+.binder {
+  position: relative;
+}
+
+.table {
+  position: absolute;
 }

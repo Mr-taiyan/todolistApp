@@ -22,7 +22,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       plans: [],
-      optArr: []
+      optArr: [],
+      finalArr: []
     };
     this.handler = this.handler.bind(this);
   }
@@ -61,9 +62,9 @@ class App extends React.Component {
       }
     }
 
-    // let a = document.getElementsByClassName("wrapper")[0];
-    // a.style.width = `${optArr.length * 200}px`;
-    // console.log(a.style);
+    let a = document.getElementsByClassName("wrapper")[0];
+    a.style.width = `${optArr.length * 144}px`;
+    console.log(a.style);
 
     let finalArr = [];
     for (let i = 0, len = optArr.length; i < len; i++) {
@@ -76,7 +77,8 @@ class App extends React.Component {
 
     this.setState({
       plans: newArr,
-      optArr: finalArr
+      optArr: optArr,
+      finalArr: finalArr
     });
   }
 
@@ -88,25 +90,27 @@ class App extends React.Component {
           <div>
             <img src={require("../img/time-scale.png")} alt="not found" />
           </div>
-          {/* <div className="wrapper" style={{ width: "0px" }}>
-            {!this.state.optArr
-              ? []
-              : this.state.optArr.map(
-                  ({ start, end, content, column, backgroundColor }) => (
-                    <div
-                      key={`${column}-${start}`}
-                      style={{
-                        gridColumn: `${column}/${column + 1}`,
-                        gridRow: `${start + 1}/${end + 1}`,
-                        backgroundColor: backgroundColor
-                      }}
-                    >
-                      {start}~{end}:{content}
-                    </div>
-                  )
-                )}
-          </div> */}
-          <Boxes Arr={this.state.optArr} />
+          <div className="binder">
+            <Boxes Arr={this.state.optArr} />
+            <div className="wrapper" style={{ width: "0px" }}>
+              {!this.state.finalArr
+                ? []
+                : this.state.finalArr.map(
+                    ({ start, end, content, column, backgroundColor }) => (
+                      <div
+                        key={`${column}-${start}`}
+                        style={{
+                          gridColumn: `${column}/${column + 1}`,
+                          gridRow: `${start + 1}/${end + 1}`,
+                          backgroundColor: backgroundColor
+                        }}
+                      >
+                        {start}~{end}:{content}
+                      </div>
+                    )
+                  )}
+            </div>
+          </div>
         </div>
       </div>
     );

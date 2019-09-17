@@ -13,7 +13,7 @@ const Boxes = ({ Arr }) => {
   }
 
   const wrap = (
-    <div>
+    <div className="table">
       <div className="title" style={{ width: column * 144 }}>
         日程内容
       </div>
