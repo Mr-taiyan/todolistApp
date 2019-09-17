@@ -13,8 +13,13 @@ const Boxes = ({ Arr }) => {
   }
 
   const wrap = (
-    <div className="flexbox" style={{ width: column * 144 }}>
-      {boxes}
+    <div>
+      <div className="title" style={{ width: column * 144 }}>
+        日程内容
+      </div>
+      <div className="flexbox" style={{ width: column * 144 }}>
+        {boxes}
+      </div>
     </div>
   );
 

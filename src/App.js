@@ -106,8 +106,8 @@ class App extends React.Component {
                   )
                 )}
           </div> */}
+          <Boxes Arr={this.state.optArr} />
         </div>
-        <Boxes Arr={this.state.optArr} />
       </div>
     );
   }

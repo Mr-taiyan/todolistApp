@@ -10,6 +10,16 @@
   grid-template-rows: repeat(24, 1fr);
 }
 
+.title {
+  width: auto;
+  height: 26px;
+  border-width: 1px 1px 0px;
+  border-style: solid;
+  background-color: tan;
+  text-align: center;
+  line-height: 26px;
+}
+
 .flexbox {
   width: auto;
   height: 648px;
