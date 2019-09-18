@@ -5,6 +5,7 @@ import { Router, Link } from "@reach/router";
 import getRandomColor from "./getRandomColor";
 import Boxes from "./Boxes";
 import Blocks from "./Blocks";
+import TimeBar from "./TimeBar";
 
 // const App = () => {
 //   const [plans, setPlans] = useState([]);
@@ -110,9 +111,11 @@ class App extends React.Component {
       <div>
         <Selection handler={this.handler} hours={this.hours} />
         <div className="set">
-          <div>
+          {/* <div>
             <img src={require("../img/time-scale.png")} alt="not found" />
-          </div>
+          </div> */}
+          <TimeBar hours={this.hours} />
+
           <div className="binder">
             <Boxes Arr={this.state.optArr} />
             <Blocks finalArr={this.state.finalArr} />

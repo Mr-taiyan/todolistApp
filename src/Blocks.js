@@ -3,7 +3,6 @@ import React from "react";
 const Blocks = ({ finalArr }) => {
   return (
     <div className="wrapper" style={{ width: "0px" }}>
-      {console.log(finalArr.length)}
       {!finalArr.length
         ? []
         : finalArr.map(({ start, end, content, column, backgroundColor }) => (
