@@ -4,6 +4,7 @@ import Selection from "./Selection";
 import { Router, Link } from "@reach/router";
 import getRandomColor from "./getRandomColor";
 import Boxes from "./Boxes";
+import Blocks from "./Blocks";
 
 // const App = () => {
 //   const [plans, setPlans] = useState([]);
@@ -87,24 +88,7 @@ class App extends React.Component {
           </div>
           <div className="binder">
             <Boxes Arr={this.state.optArr} />
-            <div className="wrapper" style={{ width: "0px" }}>
-              {!this.state.finalArr.length
-                ? []
-                : this.state.finalArr.map(
-                    ({ start, end, content, column, backgroundColor }) => (
-                      <div
-                        key={`${column}-${start}`}
-                        style={{
-                          gridColumn: `${column}/${column + 1}`,
-                          gridRow: `${start + 1}/${end + 1}`,
-                          backgroundColor: backgroundColor
-                        }}
-                      >
-                        {start}~{end}:{content}
-                      </div>
-                    )
-                  )}
-            </div>
+            <Blocks finalArr={this.state.finalArr} />
           </div>
         </div>
       </div>
