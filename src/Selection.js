@@ -20,22 +20,16 @@ const Selection = ({ handler, hours }) => {
 
   return (
     <form
+      className="body-left"
       onSubmit={e => {
         e.preventDefault();
         handler({ start, end, content });
       }}
     >
-      <label>
-        content:
-        <input
-          type="text"
-          value={content}
-          onChange={e => setContent(e.target.value)}
-        />
-      </label>
-      <label>
-        start:
+      <div className="body-select">
+        <label className="title-select">事件</label>
         <select
+          id="starttime-select"
           value={start}
           onChange={e => setStart(+e.target.value)}
           onBlur={e => setStart(+e.target.value)}
@@ -46,10 +40,8 @@ const Selection = ({ handler, hours }) => {
             </option>
           ))}
         </select>
-      </label>
-      <label>
-        end:
         <select
+          id="endtime-select"
           value={end}
           onChange={e => setEnd(+e.target.value)}
           onBlur={e => setEnd(+e.target.value)}
@@ -64,8 +56,14 @@ const Selection = ({ handler, hours }) => {
             ))
           )}
         </select>
-      </label>
-      <button>✅</button>
+        <input
+          id="message"
+          type="text"
+          value={content}
+          onChange={e => setContent(e.target.value)}
+        />
+      </div>
+      <button className="submit">✅</button>
     </form>
   );
 };

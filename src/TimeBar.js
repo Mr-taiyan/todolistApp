@@ -7,7 +7,7 @@ const TimeBar = ({ hours }) => {
     if (i % 2) {
       cssclass = "hours-white";
     }
-    time.push(<div className={cssclass}>{hours[i]}</div>);
+    time.push(<div className={cssclass}>{hours[i]}:00</div>);
   }
   return (
     <div className="program-time">

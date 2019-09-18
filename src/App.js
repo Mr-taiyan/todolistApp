@@ -47,7 +47,8 @@ class App extends React.Component {
       20,
       21,
       22,
-      23
+      23,
+      0
     ];
     this.state = {
       plans: [],
@@ -109,12 +110,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Selection handler={this.handler} hours={this.hours} />
         <div className="set">
+          <Selection handler={this.handler} hours={this.hours} />
           <TimeBar hours={this.hours} />
           <div className="binder">
             <Boxes Arr={this.state.optArr} />
             <Blocks finalArr={this.state.finalArr} />
+            {console.log(this.state.finalArr)}
           </div>
         </div>
       </div>
