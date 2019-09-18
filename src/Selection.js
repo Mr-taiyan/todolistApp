@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Selection = ({ handler }) => {
-  let hours = [];
-  for (let i = 0; i < 24; i++) {
-    hours.push(i);
-  }
+const Selection = ({ handler, hours }) => {
   const [content, setContent] = useState("");
   const [starts, setStarts] = useState(hours);
   const [start, setStart] = useState(new Date().getHours());
