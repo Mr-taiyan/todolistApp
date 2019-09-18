@@ -29,10 +29,6 @@ class App extends React.Component {
   }
 
   handler(obj) {
-    // this.setState((state, props) => ({
-    //   plans: state.plans.push(obj)
-    // }));
-    // console.log(this.state.plans);
     let newArr = this.state.plans;
     newArr.push(obj);
 
@@ -64,7 +60,6 @@ class App extends React.Component {
 
     let a = document.getElementsByClassName("wrapper")[0];
     a.style.width = `${optArr.length * 144}px`;
-    console.log(a.style);
 
     let finalArr = [];
     for (let i = 0, len = optArr.length; i < len; i++) {
@@ -93,7 +88,7 @@ class App extends React.Component {
           <div className="binder">
             <Boxes Arr={this.state.optArr} />
             <div className="wrapper" style={{ width: "0px" }}>
-              {!this.state.finalArr
+              {!this.state.finalArr.length
                 ? []
                 : this.state.finalArr.map(
                     ({ start, end, content, column, backgroundColor }) => (
