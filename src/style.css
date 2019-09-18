@@ -13,12 +13,12 @@
 
 .title {
   width: auto;
-  height: 26px;
+  height: 40px;
+  line-height: 40px;
   border-width: 1px 1px 0px;
   border-style: solid;
   background-color: tan;
   text-align: center;
-  line-height: 26px;
 }
 
 .flexbox {
@@ -65,8 +65,8 @@
 }
 .times {
   width: 70px;
-  height: 41px;
-  line-height: 41px;
+  height: 26px;
+  line-height: 26px;
   background-color: white;
 }
 .hours-gray {

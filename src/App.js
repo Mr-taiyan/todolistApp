@@ -111,11 +111,7 @@ class App extends React.Component {
       <div>
         <Selection handler={this.handler} hours={this.hours} />
         <div className="set">
-          {/* <div>
-            <img src={require("../img/time-scale.png")} alt="not found" />
-          </div> */}
           <TimeBar hours={this.hours} />
-
           <div className="binder">
             <Boxes Arr={this.state.optArr} />
             <Blocks finalArr={this.state.finalArr} />
