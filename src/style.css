@@ -1,3 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
 .set {
   display: flex;
   flex-flow: row wrap;
@@ -33,15 +43,15 @@
 
 .blockgray {
   background-color: wheat;
-  width: 144px;
-  height: 26px;
+  /* width: 144px;
+  height: 26px; */
   border-bottom: dashed 1px #d6d2d2;
 }
 
 .blockwhite {
   background-color: white;
-  width: 144px;
-  height: 26px;
+  /* width: 144px;
+  height: 26px; */
   border-bottom: dashed 1px #d6d2d2;
 }
 
@@ -53,10 +63,6 @@
   position: absolute;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
 .program-time {
   width: 70px;
   height: 687px;
@@ -83,16 +89,6 @@
   background-color: white;
 }
 
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-}
 .body-left {
   width: 144px;
   height: 687px;
@@ -142,4 +138,44 @@ button {
 .submit:hover {
   background-color: rgb(100, 100, 192);
   color: white;
+}
+@media (max-width: 375px) {
+  .body-left {
+    width: 375px;
+    height: 96px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .body-select {
+    width: 323px;
+    height: 96px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .title-select {
+    width: 40px;
+    height: 96px;
+    font-size: 15px;
+  }
+  #starttime-select {
+    width: 96px;
+    height: 17px;
+    margin-bottom: 15px;
+  }
+  #endtime-select {
+    width: 96px;
+    height: 17px;
+  }
+  #message {
+    width: 160px;
+    height: 54px;
+  }
+  .submit {
+    width: 39px;
+    height: 18px;
+    margin-bottom: 18px;
+  }
 }
