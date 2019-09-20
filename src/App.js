@@ -50,10 +50,21 @@ class App extends React.Component {
       23,
       0
     ];
+    let currentWindowWidth = window.innerWidth;
+    let windowInformation = {};
+    windowInformation.unitWidth = 144;
+    windowInformation.unitHeight = 26;
+    windowInformation.defaultColumn = 4;
+    if (currentWindowWidth <= 375) {
+      windowInformation["unitWidth"] = 100;
+      windowInformation["unitHeight"] = 26;
+      windowInformation["defaultColumn"] = 3;
+    }
     this.state = {
       plans: [],
       optArr: [],
-      finalArr: []
+      finalArr: [],
+      windowInformation: windowInformation
     };
     this.handler = this.handler.bind(this);
   }
@@ -89,7 +100,9 @@ class App extends React.Component {
     }
 
     let a = document.getElementsByClassName("wrapper")[0];
-    a.style.width = `${optArr.length * 144}px`;
+    console.log(this.state.windowInformation.unitWidth);
+    a.style.width = `${optArr.length *
+      this.state.windowInformation.unitWidth}px`;
 
     let finalArr = [];
     for (let i = 0, len = optArr.length; i < len; i++) {
@@ -114,7 +127,10 @@ class App extends React.Component {
           <Selection handler={this.handler} hours={this.hours} />
           <TimeBar hours={this.hours} />
           <div className="binder">
-            <Boxes Arr={this.state.optArr} />
+            <Boxes
+              Arr={this.state.optArr}
+              windowInformation={this.state.windowInformation}
+            />
             <Blocks finalArr={this.state.finalArr} />
             {console.log(this.state.finalArr)}
           </div>
