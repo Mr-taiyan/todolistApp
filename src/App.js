@@ -125,14 +125,15 @@ class App extends React.Component {
       <div>
         <div className="set">
           <Selection handler={this.handler} hours={this.hours} />
-          <TimeBar hours={this.hours} />
-          <div className="binder">
-            <Boxes
-              Arr={this.state.optArr}
-              windowInformation={this.state.windowInformation}
-            />
-            <Blocks finalArr={this.state.finalArr} />
-            {console.log(this.state.finalArr)}
+          <div className="boxing">
+            <TimeBar hours={this.hours} />
+            <div className="binder">
+              <Boxes
+                Arr={this.state.optArr}
+                windowInformation={this.state.windowInformation}
+              />
+              <Blocks finalArr={this.state.finalArr} />
+            </div>
           </div>
         </div>
       </div>

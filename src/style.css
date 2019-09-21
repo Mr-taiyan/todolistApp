@@ -147,6 +147,8 @@ button {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-end;
+    position: fixed;
+    z-index: 99;
   }
   .body-select {
     width: 323px;
@@ -177,5 +179,13 @@ button {
     width: 39px;
     height: 18px;
     margin-bottom: 18px;
+  }
+  .program-time {
+    z-index: 98;
+    margin-top: 98px;
+    position: fixed;
+    overflow: auto;
+    max-height: 570px;
+    white-space: nowrap;
   }
 }
